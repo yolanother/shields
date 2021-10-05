@@ -1,6 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class Shield : MonoBehaviour
 {
@@ -50,11 +53,7 @@ public class Shield : MonoBehaviour
             target = 0;
         }
         _shieldOn = !_shieldOn;
-        if (_disolveCoroutine != null)
-        {
-            StopCoroutine(_disolveCoroutine);
-        }
-        _disolveCoroutine = StartCoroutine(Coroutine_DisolveShield(target));
+        SetDissolve(target);
     }
 
     IEnumerator Coroutine_HitDisplacement()
@@ -79,4 +78,43 @@ public class Shield : MonoBehaviour
             yield return null;
         }
     }
+
+    public void SetDissolve(float dissolve)
+    {
+        if (_disolveCoroutine != null)
+        {
+            StopCoroutine(_disolveCoroutine);
+        }
+
+        _disolveCoroutine = StartCoroutine(Coroutine_DisolveShield(dissolve));
+    }
 }
+
+#if UNITY_EDITOR
+[CustomEditor(typeof(Shield))]
+public class ShieldEditor : Editor
+{
+    [SerializeField] private Transform impactObject;
+
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+
+        if (Application.isPlaying)
+        {
+            var shield = (Shield) target;
+            if (GUILayout.Button("Open/Close Shield"))
+            {
+                shield.OpenCloseShield();
+            }
+
+            impactObject = (Transform) EditorGUILayout.ObjectField("Impact Object", impactObject, typeof(Transform));
+            if (GUILayout.Button("Hit"))
+            {
+                shield.HitShield(impactObject.position);
+            }
+        }
+    }
+}
+
+#endif

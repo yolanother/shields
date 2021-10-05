@@ -1,0 +1,9 @@
+{
+  "name": "com.abitofgamedev.shields",
+  "displayName": "AbitoFGameDev - Shields",
+  "version": "0.0.1",
+  "unity": "2019.4",
+  "keywords": [
+    "scene"
+  ]
+}

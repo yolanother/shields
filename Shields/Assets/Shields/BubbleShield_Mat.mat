@@ -21,7 +21,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BubbleShield_Mat
-  m_Shader: {fileID: -6465566751694194690, guid: ffe8d4a25895b6e47ad5523ea5b8e18c, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: ffe8d4a25895b6e47ad5523ea5b8e18c,
+    type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -88,6 +89,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - Vector1_434d8f6edb7f4e109dc7b47df03c0119: 0.4
     - Vector1_526772f4a438409589cd4dc991e40b3a: 0.32
@@ -107,7 +109,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _Disolve: 0.433
+    - _Disolve: 1
     - _DisplacementStrength: 0
     - _DstBlend: 0
     - _EnvironmentReflections: 1
