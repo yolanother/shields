@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BubbleShield_Mat
-  m_Shader: {fileID: -6465566751694194690, guid: ffe8d4a25895b6e47ad5523ea5b8e18c,
+  m_Name: BubbleShield_MatPerf
+  m_Shader: {fileID: -6465566751694194690, guid: a8a062a386b46ef438fbc45da3cd4898,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
