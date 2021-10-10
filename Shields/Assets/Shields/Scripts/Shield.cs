@@ -91,6 +91,8 @@ public class Shield : MonoBehaviour
 
     IEnumerator Coroutine_DisolveShield(float target)
     {
+        if(!_renderer || !_renderer.material) yield break;
+
         float start = _renderer.material.GetFloat("_Disolve");
         float lerp = 0;
         while (lerp < 1)
@@ -103,11 +105,13 @@ public class Shield : MonoBehaviour
         if (target >= 1)
         {
             onShieldInactive?.Invoke();
+            _renderer.material.SetFloat("_Disolve", 1);
         }
 
         if (target <= 0)
         {
             onShieldActive?.Invoke();
+            _renderer.material.SetFloat("_Disolve", 0);
         }
 
     }
